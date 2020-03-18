@@ -1,7 +1,3 @@
-[![Windows Status](http://img.shields.io/appveyor/ci/MSOpenTech-lab/redis.svg?style=flat-square)](https://ci.appveyor.com/project/MSOpenTech-lab/redis) [![NuGet version](http://img.shields.io/nuget/v/redis-64.svg?style=flat-square)](http://www.nuget.org/packages/redis-64/) [![Chocolatey version](http://img.shields.io/chocolatey/v/redis-64.svg?style=flat-square)](http://www.chocolatey.org/packages/redis-64/) [![Chocolatey downloads](http://img.shields.io/chocolatey/dt/redis-64.svg?style=flat-square)](http://www.chocolatey.org/packages/redis-64/)
-
-This project is no longer being actively maintained. If you are looking for a Windows version of Redis, you may want to check out [Memurai](https://www.memurai.com/). Please note that Microsoft is not officially endorsing this product in any way.
-
 ## Redis on Windows 
 
 - This is a port for Windows based on [Redis](https://github.com/antirez/redis).
@@ -60,6 +56,3 @@ To run the Redis test suite some manual work is required:
   following error message: "couldn't execute "cat": no such file or directory".
 - By default the test suite launches 16 parallel tests, but 2 is the suggested number. 
   
-## Code of Conduct
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.

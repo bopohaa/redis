@@ -16,6 +16,7 @@ Debug/
 Release/
 x64/
 misc/*
+.vs/
 src/release.h
 appendonly.aof
 SHORT_TERM_TODO

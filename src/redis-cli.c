@@ -497,7 +497,7 @@ static sds cliFormatReplyTTY(redisReply *r, char *prefix) {
             _prefix = sdscat(sdsnew(prefix),_prefixlen);
 
             /* Setup prefix format for every entry */
-            snprintf(_prefixfmt,sizeof(_prefixfmt),"%%s%%%dd) ",idxlen);
+			snprintf(_prefixfmt, sizeof(_prefixfmt), "%%s%%%ud) ", idxlen);
 
             for (i = 0; i < r->elements; i++) {
                 /* Don't use the prefix for the first element, as the parent
@@ -1926,7 +1926,7 @@ void bytesToHuman(char *s, PORT_LONGLONG n) {
     }
     if (n < 1024) {
         /* Bytes */
-        sprintf(s,"%lluB",n);
+		sprintf(s, "%lldB", n);
         return;
     } else if (n < (1024*1024)) {
         d = (double)n/(1024);
@@ -2194,7 +2194,7 @@ static void intrinsicLatencyMode(void) {
         PORT_LONGLONG start, end, latency;
 
         start = ustime();
-        compute_something_fast();
+		PORT_ULONG computed = compute_something_fast();
         end = ustime();
         latency = end-start;
         runs++;
@@ -2203,7 +2203,7 @@ static void intrinsicLatencyMode(void) {
         /* Reporting */
         if (latency > max_latency) {
             max_latency = latency;
-            printf("Max latency so far: %lld microseconds.\n", max_latency);
+            printf("Max latency so far: %lld (%ld) microseconds.\n", max_latency, computed);
         }
 
         double avg_us = (double)run_time/runs;

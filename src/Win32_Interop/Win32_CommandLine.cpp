@@ -46,7 +46,7 @@ using namespace std;
 ArgumentMap g_argMap;
 vector<string> g_pathsAccessed;
 
-string stripQuotes(string s) {
+string stripQuotes(const string& s) {
     if (s.length() >= 2) {
         if (s.at(0) == '\'' &&  s.at(s.length() - 1) == '\'') {
             if (s.length() > 2) {
@@ -199,7 +199,7 @@ public:
     dllfunctor_stdcall<int, LPCSTR, INT, LPWSAPROTOCOL_INFO, LPSOCKADDR, LPINT> f_WSAStringToAddressA =
         dllfunctor_stdcall<int, LPCSTR, INT, LPWSAPROTOCOL_INFO, LPSOCKADDR, LPINT>("ws2_32.dll", "WSAStringToAddressA");
 
-    bool IsIPAddress(string address) {
+    bool IsIPAddress(const string& address) {
         SOCKADDR_IN sockaddr4;
         sockaddr4.sin_family = AF_INET;
         SOCKADDR_IN6 sockaddr6;
@@ -457,7 +457,7 @@ std::vector<std::string> split(const std::string &s, char delim) {
     return elems;
 }
 
-vector<string> Tokenize(string line)  {
+vector<string> Tokenize(const string& line)  {
     vector<string> tokens;
     stringstream token;
 
@@ -508,7 +508,7 @@ vector<string> Tokenize(string line)  {
     return tokens;
 }
 
-void ParseConfFile(string confFile, string cwd, ArgumentMap& argMap) {
+void ParseConfFile(const string& confFile, const string& cwd, ArgumentMap& argMap) {
     ifstream config;
     string line;
 
@@ -597,7 +597,8 @@ void ParseCommandLineArguments(int argc, char** argv) {
     string confFilePath;
     for (int n = (confFile ? 2 : 1); n < argc; n++) {
         if (string(argv[n]).substr(0, 2) == "--") {
-            string argument = string(argv[n]).substr(2, argument.length() - 2);
+			string arg1 = string(argv[n]);
+            string argument = arg1.substr(2, arg1.length() - 2);
             transform(argument.begin(), argument.end(), argument.begin(), ::tolower);
 
             // Some -- arguments are passed directly to redis.c::main()

@@ -1,5 +1,9 @@
 MSOpenTech Redis on Windows 3.0 Release Notes
 =============================================
+--[ Redis 3.0.7 ] Release date: 18 Mar 2020
+ - [MRG] Merge official Redis repository release changes from 3.0.7 version
+ - [Fix] Fixes client buffer size underflow (by @lgsonic and @Aaron-2016)
+
 --[ Redis on Windows 3.0.504 ] Release date: Jul 01 2016
 
  - [Fix] Use overlapped sockets for cluster failover communication.
